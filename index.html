@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>PLCNiB - nieruchomości i budownictwo w Płocku (podgląd)</title>
+<meta name="description" content="Płockie Centrum Nieruchomości i Budownictwa: oferty nieruchomości, katalog firm budowlanych i ogłoszenia z Płocka i okolic. Podgląd nowej odsłony portalu.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M6 34 32 10l26 24' fill='none' stroke='%23f00' stroke-width='8'/%3E%3Ccircle cx='32' cy='34' r='6' fill='%23282828'/%3E%3Cpath d='M22 40h20l-4 20h-12z' fill='%23282828'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/archivo-rdzen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/webp" href="img/nier-1000.webp" imagesrcset="img/nier-640.webp 640w, img/nier-1000.webp 1000w, img/nier-1400.webp 1400w" imagesizes="50vw" fetchpriority="high">
+<style>
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/archivo-rdzen.woff2) format("woff2");unicode-range:U+0020-007E,U+00A0,U+00A9,U+00AB,U+00B0,U+00B7,U+00BB,U+00D3,U+00D7,U+00F3,U+2013,U+2018-2019,U+201C-201E,U+2026}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/archivo-pl.woff2) format("woff2");unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+@font-face{font-family:"Archivo-fb";src:local("Arial");size-adjust:102%;ascent-override:90%;descent-override:22%;line-gap-override:0%}
+:root{--red:#FF0000;--red2:#D90000;--red3:#B30000;--ink:#232427;--grey:#646464;--mut:#55585E;--g:#EEF0F2;--line:#DCDFE3;--dark:#1F2023;--dark2:#2A2C30;--hh:64px;--w:min(calc(100vw - 32px),1360px)}
+@media (min-width:900px){:root{--hh:76px;--w:min(calc(100vw - 64px),1360px)}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--hh);-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Archivo,"Archivo-fb",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:clamp(16px,.2vw + 15px,18px);line-height:1.6;color:var(--ink);background:#fff;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{line-height:1.08;margin:0;font-weight:800;letter-spacing:-.01em}
+p{margin:0}
+.wrap{width:var(--w);margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:50px;padding:0 24px;font:inherit;font-weight:700;font-size:16px;text-decoration:none;border:0;border-radius:2px;cursor:pointer;transition:background-color .15s,color .15s}
+.btn-red{background:var(--red2);color:#fff}.btn-red:hover{background:var(--red3)}
+.btn-white{background:#fff;color:var(--ink)}.btn-white:hover{background:var(--g)}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{background:#000}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+
+/* naglowek */
+.top{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 1px 0 var(--line)}
+.top .wrap{height:var(--hh);display:flex;align-items:center;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-right:auto}
+.logo svg{width:46px;height:37px;flex:none}
+.logo b{display:block;font-size:22px;font-weight:800;line-height:1;letter-spacing:-.01em}
+.logo small{display:none;font-size:12.5px;color:var(--mut);line-height:1.2;margin-top:4px}
+@media (min-width:1180px){.logo small{display:block}}
+.menu{display:none}
+.menu a{text-decoration:none;font-weight:600;font-size:16px;padding:8px 2px;border-bottom:3px solid transparent}
+.menu a:hover{border-bottom-color:var(--line)}
+.menu a[aria-current="true"]{border-bottom-color:var(--red)}
+.top .btn{min-height:44px;padding:0 18px;font-size:15px}
+.top .btn-add{display:none}
+.burger{width:48px;height:44px;border:1px solid var(--line);background:#fff;border-radius:2px;cursor:pointer;display:grid;place-items:center;padding:0}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);box-shadow:0 7px 0 var(--ink),0 -7px 0 var(--ink)}
+@media (min-width:980px){.menu{display:flex;gap:26px}.top .btn-add{display:inline-flex}.top .burger{display:none}}
+.mobnav{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);padding:8px 16px 18px;box-shadow:0 12px 24px rgba(0,0,0,.08)}
+.mobnav.open{display:block}
+.mobnav a{display:block;padding:13px 0;font-weight:700;font-size:18px;text-decoration:none;border-bottom:1px solid var(--g)}
+.mobnav a[aria-current="true"]{color:var(--red2)}
+.mobnav a.btn{display:flex;margin-top:14px;width:100%;border:0;font-size:16px;padding:0 24px}
+@media (min-width:980px){.mobnav{display:none!important}}
+
+/* pierwszy ekran: dwie branze obok siebie pod jednym dachem */
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;min-height:calc(100svh - var(--hh));color:#fff;background:var(--dark)}
+.ph{position:relative;overflow:hidden;margin:0;grid-row:1/3}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,20,.70) 0%,rgba(18,18,20,.40) 45%,rgba(18,18,20,.32) 58%,rgba(18,18,20,.80) 100%)}
+.ph-n{grid-column:1}.ph-n img{object-position:42% 50%}
+.ph-b{grid-column:2}.ph-b img{object-position:72% 50%}
+.intro{grid-column:1/3;grid-row:1;position:relative;z-index:2;text-align:center;padding:20px 14px 0}
+.roof{display:block;width:min(92vw,1300px);height:auto;margin:0 auto}
+.intro h1{font-size:clamp(26px,7.2vw,34px);margin:8px auto 0;max-width:15ch;text-wrap:balance}
+.intro p{margin:12px auto 0;max-width:36ch;font-size:15.5px;line-height:1.5;color:#E9EAEC}
+.half{position:relative;z-index:2;grid-row:2;padding:18px 12px 22px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;min-width:0}
+.half-n{grid-column:1}.half-b{grid-column:2}
+.half h2{font-size:clamp(21px,5.6vw,32px)}
+.half p{margin-top:6px;font-size:15px;line-height:1.4;color:#E9EAEC;max-width:34ch}
+.half .btn{margin-top:14px;width:100%;padding:0 10px}
+.intro h1 br{display:none}
+@media (min-width:600px){.half{padding:20px 24px 26px}.half .btn{width:auto;padding:0 24px}}
+@media (min-width:900px){
+ .hero{min-height:max(620px,calc(100svh - var(--hh)))}
+ .ph::after{background:linear-gradient(180deg,rgba(18,18,20,.64) 0%,rgba(18,18,20,.30) 45%,rgba(18,18,20,.30) 60%,rgba(18,18,20,.78) 100%)}
+ .intro{padding:clamp(20px,3.4svh,48px) 32px 0}
+ .roof{width:min(80vw,1300px,128svh)}
+ .intro h1{font-size:clamp(36px,3.6vw,64px);max-width:none;margin-top:clamp(4px,.8vw,14px)}
+ .intro h1 br{display:inline}
+ .intro p{font-size:clamp(17px,1.2vw,20px);max-width:52ch;margin-top:12px}
+ .half{padding:24px clamp(32px,4vw,72px) clamp(28px,5svh,64px)}
+ .half h2{font-size:clamp(34px,3.4vw,54px)}
+ .half p{font-size:clamp(16px,1.1vw,19px)}
+ .half .btn{margin-top:18px}
+}
+
+
+/* sekcje */
+.sec{padding:clamp(56px,8vw,112px) 0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 40px;margin-bottom:clamp(24px,3vw,40px)}
+.sec-head h2{font-size:clamp(30px,3.6vw,52px);max-width:20ch}
+.sec-head p{max-width:52ch;color:var(--mut)}
+.mark{display:block;width:56px;height:20px;margin-bottom:14px}
+.dark{background:var(--dark);color:#fff}
+.dark .sec-head p{color:#B9BCC2}
+.grey{background:var(--g)}
+
+/* wyszukiwarka */
+.search{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--ink);padding:14px;border-radius:2px}
+.search label{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;color:#C9CCD1}
+.search select,.search input{height:48px;border:0;border-radius:2px;padding:0 12px;font:inherit;font-size:16px;color:var(--ink);background:#fff;width:100%;min-width:0}
+.search .btn{grid-column:1/-1;align-self:end;height:48px;min-height:48px}
+@media (min-width:900px){.search{grid-template-columns:repeat(4,1fr) auto;padding:18px;gap:12px}.search .btn{grid-column:auto;padding:0 30px}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.chip{font:inherit;font-size:15px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:2px;padding:9px 14px;cursor:pointer;color:var(--ink)}
+.chip span{color:var(--mut);font-weight:500;margin-left:4px}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.chip[aria-pressed="true"] span{color:#C9CCD1}
+.count{font-size:15px;color:var(--mut);margin:10px 0 18px}
+
+/* karty ofert: przesuwane palcem na telefonie */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin;cursor:grab}
+.rail.drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.rail>*{scroll-snap-align:start}
+@media (min-width:640px){.rail{grid-auto-columns:46%}}
+@media (min-width:1000px){.rail.offers{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible;cursor:auto}}
+.of{background:#fff;border:1px solid var(--line);border-radius:2px;overflow:hidden;display:flex;flex-direction:column}
+.of[hidden]{display:none}
+.of-ph{position:relative;aspect-ratio:4/3;background:var(--g)}
+.of-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.tag{position:absolute;left:0;bottom:0;background:var(--red2);color:#fff;font-size:13px;font-weight:700;padding:16px 14px 6px;clip-path:polygon(0 12px,50% 0,100% 12px,100% 100%,0 100%)}
+.tag.wyn{background:var(--ink)}
+.of-b{padding:14px 16px 16px;display:flex;flex-direction:column;gap:3px;flex:1}
+.cena{font-size:22px;font-weight:800;letter-spacing:-.01em}
+.par{font-weight:600}
+.lok{color:var(--mut);font-size:15px}
+.biuro{margin-top:auto;padding-top:10px;font-size:14px;color:var(--mut);border-top:1px solid var(--g)}
+.empty{padding:24px;background:var(--g);display:none}
+
+/* budownictwo */
+.bud{display:grid;gap:32px}
+@media (min-width:1000px){.bud{grid-template-columns:1.1fr .9fr;gap:56px;align-items:stretch}}
+.cats{columns:2;column-gap:24px;list-style:none;margin:24px 0 0;padding:0}
+@media (min-width:640px){.cats.c3{columns:3}}
+.cats li{break-inside:avoid;padding:7px 0 7px 22px;position:relative;line-height:1.35}
+.cats li::before{content:"";position:absolute;left:0;top:13px;width:12px;height:7px;background:var(--red);clip-path:polygon(0 100%,50% 0,100% 100%,78% 100%,50% 40%,22% 100%)}
+.cats a{text-decoration:none}.cats a:hover{text-decoration:underline}
+.dark .cats li{border-bottom:1px solid #34363B}
+.bud-ph{position:relative;min-height:300px;margin:0 calc((100vw - var(--w)) / -2);overflow:hidden}
+.bud-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (min-width:1000px){.bud-ph{margin:0 calc((100vw - var(--w)) / -2) 0 0}}
+.ogl{margin-top:clamp(40px,5vw,64px)}
+.ogl h3{font-size:clamp(22px,2.2vw,30px);margin-bottom:18px}
+.ogl-list{display:grid;gap:10px;list-style:none;margin:0;padding:0}
+@media (min-width:700px){.ogl-list{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.ogl-list{grid-template-columns:repeat(3,1fr)}}
+.ogl-list li{background:var(--dark2);padding:16px 18px;border-left:4px solid var(--red);line-height:1.4;font-weight:600}
+.ogl-list small{display:block;font-weight:500;color:#A9ACB2;font-size:14px;margin-top:4px}
+.ogl .btn{margin-top:22px}
+
+/* katalog firm nieruchomosci */
+.firmy{display:grid;gap:28px}
+@media (min-width:1000px){.firmy{grid-template-columns:.8fr 1.2fr;gap:56px}}
+.firmy .cats li{border-bottom:1px solid var(--line)}
+.firmy>*,.bud>*{min-width:0}
+.biura h3{font-size:22px;margin-bottom:14px}
+.rail.offices{grid-auto-columns:78%}
+@media (min-width:640px){.rail.offices{grid-auto-columns:44%}}
+.bi{background:#fff;border-radius:2px;padding:20px 18px;position:relative}
+.bi::before{content:"";display:block;height:14px;margin:-6px 0 14px;width:52px;background:var(--red);clip-path:polygon(0 100%,50% 0,100% 100%,86% 100%,50% 26%,14% 100%)}
+.bi b{display:block;font-size:17px;line-height:1.3}
+.bi p{font-size:15px;color:var(--mut);margin-top:6px;line-height:1.45}
+.rail-nav{display:flex;gap:8px;margin-top:14px}
+.rail-nav button{width:48px;height:44px;border:1px solid var(--line);background:#fff;border-radius:2px;cursor:pointer;font:inherit;font-size:20px;line-height:1}
+.rail-nav button:hover{border-color:var(--ink)}
+
+/* dodaj */
+.add{display:grid;gap:18px}
+@media (min-width:900px){.add{grid-template-columns:repeat(3,1fr);gap:24px}}
+.k{border:1px solid var(--line);border-top:0;padding:0 22px 24px;position:relative}
+.k::before{content:"";display:block;height:32px;margin:0 -23px 18px;background:var(--red);clip-path:polygon(0 100%,50% 0,100% 100%,calc(100% - 10px) 100%,50% 6px,10px 100%)}
+.k h3{font-size:22px}
+.k p{margin-top:8px;color:var(--mut)}
+.reg{margin-top:clamp(28px,4vw,48px);background:var(--g);padding:clamp(20px,3vw,36px);display:grid;gap:16px}
+@media (min-width:900px){.reg{grid-template-columns:1fr 1.4fr;align-items:center;gap:40px}}
+.reg h3{font-size:clamp(22px,2vw,28px)}
+.reg p{color:var(--mut);margin-top:6px}
+.reg form{display:grid;gap:10px}
+@media (min-width:640px){.reg form{grid-template-columns:1fr 1fr auto;align-items:end}}
+.reg label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:600}
+.reg select,.reg input{height:50px;border:1px solid var(--line);border-radius:2px;padding:0 12px;font:inherit;font-size:16px;background:#fff;width:100%;min-width:0}
+.reg .msg{grid-column:1/-1;font-size:15px;font-weight:600;color:var(--ink);display:none}
+
+/* stopka */
+.foot{background:var(--dark);color:#B9BCC2;padding:48px 0 26px;font-size:15px}
+.foot-g{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px}
+@media (min-width:900px){.foot-g{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.foot-brand{grid-column:1/-1}
+@media (min-width:900px){.foot-brand{grid-column:auto}}
+.foot .logo{color:#fff}
+.foot .logo small{display:block;color:#B9BCC2}
+.foot h4{color:#fff;margin:0 0 10px;font-size:16px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{padding:3px 0}
+.foot a{text-decoration:none}.foot a:hover{color:#fff}
+.foot-bottom{margin-top:36px;padding-top:18px;border-top:1px solid #34363B;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="znak" viewBox="0 0 80 64">
+  <path d="M4 31 40 6l36 25" fill="none" stroke="#f00" stroke-width="6.5" stroke-linejoin="miter"/>
+  <path d="M13 24V9h8v9.6z" fill="#f00"/>
+  <circle cx="40" cy="25" r="5.4" fill="currentColor"/>
+  <path d="M28.5 26.5 33 25l7 10.5L47 25l4.5 1.5-7.5 15 1.2 19h-10.4l1.2-19z" fill="currentColor"/>
+  <circle cx="20" cy="40" r="3.8" fill="#646464"/>
+  <path d="M12 41.2l3-1 5 7 5-7 3 1-5 9.5.8 9.3h-7.6l.8-9.3z" fill="#646464"/>
+  <circle cx="60" cy="40" r="3.8" fill="#646464"/>
+  <path d="M52 41.2l3-1 5 7 5-7 3 1-5 9.5.8 9.3h-7.6l.8-9.3z" fill="#646464"/>
+ </symbol>
+ <symbol id="daszek" viewBox="0 0 56 20"><path d="M2 19 28 3l26 16" fill="none" stroke="#f00" stroke-width="4"/><path d="M9 14.7V5h5v6.6z" fill="#f00"/></symbol>
+</svg>
+
+<header class="top">
+ <div class="wrap">
+  <a class="logo" href="#start" aria-label="PLCNiB - strona główna">
+   <svg aria-hidden="true" style="color:#282828"><use href="#znak"/></svg>
+   <span><b>PLCNiB</b><small>Płockie Centrum Nieruchomości i Budownictwa</small></span>
+  </a>
+  <nav class="menu" aria-label="Menu główne">
+   <a href="#nieruchomosci">Nieruchomości</a>
+   <a href="#budownictwo">Budownictwo</a>
+   <a href="#firmy">Katalog firm</a>
+   <a href="#dodaj">Dla firm i biur</a>
+  </nav>
+  <a class="btn btn-red btn-add" href="#dodaj">Dodaj ogłoszenie</a>
+  <button class="burger" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobnav"><span></span></button>
+  <nav class="mobnav" id="mobnav" aria-label="Menu na telefonie">
+   <a href="#nieruchomosci">Nieruchomości</a>
+   <a href="#budownictwo">Budownictwo</a>
+   <a href="#firmy">Katalog firm</a>
+   <a href="#dodaj">Dla firm i biur</a>
+   <a class="btn btn-red" href="#dodaj">Dodaj ogłoszenie</a>
+  </nav>
+ </div>
+</header>
+
+<main id="start">
+<section class="hero" aria-label="Dwa działy portalu">
+ <picture class="ph ph-n">
+  <img src="img/nier-1000.webp" srcset="img/nier-640.webp 640w, img/nier-1000.webp 1000w, img/nier-1400.webp 1400w" sizes="50vw" width="1400" height="1036" alt="Blok mieszkalny z balkonami w słońcu" fetchpriority="high">
+ </picture>
+ <picture class="ph ph-b">
+  <img src="img/bud-1000.webp" srcset="img/bud-640.webp 640w, img/bud-1000.webp 1000w, img/bud-1400.webp 1400w" sizes="50vw" width="1400" height="933" alt="Żurawie wieżowe nad budową">
+ </picture>
+ <div class="intro">
+  <svg class="roof" viewBox="0 0 1400 260" aria-hidden="true"><path d="M10 252 700 16l690 236" fill="none" stroke="#f00" stroke-width="14"/><path d="M250 172V58h70v89z" fill="#f00"/></svg>
+  <h1>Nieruchomości i budownictwo w Płocku <br>pod jednym dachem</h1>
+  <p>Oferty biur i właścicieli, firmy budowlane i ogłoszenia z Płocka i powiatu płockiego. Dodawanie ogłoszeń jest bezpłatne.</p>
+ </div>
+ <div class="half half-n">
+  <h2>Nieruchomości</h2>
+  <p>Domy, mieszkania, działki i lokale.</p>
+  <a class="btn btn-red" href="#nieruchomosci">Szukaj ofert</a>
+ </div>
+ <div class="half half-b">
+  <h2>Budownictwo</h2>
+  <p>Firmy, wykonawcy, materiały i ogłoszenia.</p>
+  <a class="btn btn-white" href="#budownictwo">Znajdź firmę</a>
+ </div>
+</section>
+
+<section class="sec" id="nieruchomosci">
+ <div class="wrap">
+  <div class="sec-head">
+   <div><svg class="mark" aria-hidden="true"><use href="#daszek"/></svg><h2>Nieruchomości w Płocku i okolicy</h2></div>
+   <p>Oferty płockich biur nieruchomości i osób prywatnych w jednej wyszukiwarce. Biura dodają je ręcznie albo automatycznie ze swojego programu.</p>
+  </div>
+  <form class="search" id="szukaj" onsubmit="return false">
+   <label>Rodzaj<select id="f-typ"><option value="">Wszystkie</option><option>Dom</option><option>Mieszkanie</option><option>Działka</option><option>Lokal użytkowy</option><option>Obiekt</option><option>Siedlisko</option></select></label>
+   <label>Transakcja<select id="f-trans"><option value="">Dowolna</option><option>Sprzedaż</option><option>Wynajem</option></select></label>
+   <label>Gdzie<select id="f-gdzie"><option value="">Płock i okolice</option><option value="p">Płock</option><option value="o">Powiat i okolice</option></select></label>
+   <label>Cena do<select id="f-cena"><option value="">Bez limitu</option><option value="5000">5 000 zł</option><option value="400000">400 000 zł</option><option value="700000">700 000 zł</option><option value="1500000">1 500 000 zł</option></select></label>
+   <button class="btn btn-red" type="submit" id="f-go">Pokaż oferty</button>
+  </form>
+  <div class="chips" role="group" aria-label="Rodzaje nieruchomości">
+   <button class="chip" type="button" data-typ="Dom" aria-pressed="false">Domy<span>219</span></button>
+   <button class="chip" type="button" data-typ="Mieszkanie" aria-pressed="false">Mieszkania<span>163</span></button>
+   <button class="chip" type="button" data-typ="Działka" aria-pressed="false">Działki<span>270</span></button>
+   <button class="chip" type="button" data-typ="Lokal użytkowy" aria-pressed="false">Lokale<span>103</span></button>
+   <button class="chip" type="button" data-typ="Obiekt" aria-pressed="false">Obiekty<span>15</span></button>
+   <button class="chip" type="button" data-typ="Siedlisko" aria-pressed="false">Siedliska<span>9</span></button>
+  </div>
+  <p class="count" id="count" aria-live="polite">Najnowsze oferty z portalu</p>
+  <div class="rail offers" id="oferty"></div>
+  <p class="empty" id="empty">W podglądzie nie ma oferty o takich parametrach. Zmień filtr albo wybierz inny rodzaj.</p>
+ </div>
+</section>
+
+<section class="sec dark" id="budownictwo">
+ <div class="wrap">
+  <div class="bud">
+   <div>
+    <svg class="mark" aria-hidden="true"><use href="#daszek"/></svg>
+    <h2 style="font-size:clamp(30px,3.6vw,52px);max-width:18ch">Budownictwo: firmy, wykonawcy, materiały</h2>
+    <p style="margin-top:14px;color:#B9BCC2;max-width:52ch">Katalog płockich firm budowlanych w 25 branżach, od projektu i geodety po dach, instalacje i ogród.</p>
+    <ul class="cats">
+     <li><a href="#budownictwo">Firmy budowlane</a></li>
+     <li><a href="#budownictwo">Architekci, projektanci, nadzór</a></li>
+     <li><a href="#budownictwo">Geodeci, geolodzy</a></li>
+     <li><a href="#budownictwo">Wykopy, prace ziemne, zbrojenia</a></li>
+     <li><a href="#budownictwo">Murowanie, betonowanie</a></li>
+     <li><a href="#budownictwo">Dachy</a></li>
+     <li><a href="#budownictwo">Okna i drzwi</a></li>
+     <li><a href="#budownictwo">Ocieplenia, izolacje</a></li>
+     <li><a href="#budownictwo">Tynki, elewacje</a></li>
+     <li><a href="#budownictwo">Instalacje elektryczne</a></li>
+     <li><a href="#budownictwo">Instalacje sanitarne</a></li>
+     <li><a href="#budownictwo">Technika grzewcza</a></li>
+     <li><a href="#budownictwo">Wentylacja i klimatyzacja</a></li>
+     <li><a href="#budownictwo">Wykończenia wnętrz</a></li>
+     <li><a href="#budownictwo">Bramy i ogrodzenia</a></li>
+     <li><a href="#budownictwo">Bruk i klinkier</a></li>
+     <li><a href="#budownictwo">Producenci materiałów</a></li>
+     <li><a href="#budownictwo">Sprzedaż materiałów</a></li>
+     <li><a href="#budownictwo">Maszyny i narzędzia</a></li>
+     <li><a href="#budownictwo">Ogrody i baseny</a></li>
+    </ul>
+    <p style="margin-top:14px;color:#B9BCC2;font-size:15px">oraz: meble, media, roboty drogowe i transport, konserwacja zabytków, edukacja</p>
+   </div>
+   <figure class="bud-ph" style="margin-top:0;margin-bottom:0">
+    <img src="img/ekipa-800.webp" srcset="img/ekipa-800.webp 800w, img/ekipa-1200.webp 1200w" sizes="(min-width:1000px) 45vw, 100vw" width="1200" height="800" alt="Ekipa budowlana na stropie budynku" loading="lazy">
+   </figure>
+  </div>
+  <div class="ogl">
+   <h3>Ogłoszenia budowlane</h3>
+   <ul class="ogl-list">
+    <li>Odsprzedam cegłę klinkierową<small>materiały budowlane</small></li>
+    <li>Materiały budowlane nowe i używane<small>materiały budowlane</small></li>
+    <li>Słupki ogrodzeniowe fi 51, rura używana<small>ogrodzenia</small></li>
+    <li>Dachy, papa termozgrzewalna<small>usługi dekarskie</small></li>
+    <li>Sprzedam piłę stołową (krajzegę)<small>maszyny i narzędzia</small></li>
+    <li>Folie okienne, matowe i przeciwsłoneczne<small>okna i drzwi</small></li>
+   </ul>
+   <a class="btn btn-red" href="#dodaj">Dodaj ogłoszenie budowlane</a>
+  </div>
+ </div>
+</section>
+
+<section class="sec grey" id="firmy">
+ <div class="wrap">
+  <div class="sec-head">
+   <div><svg class="mark" aria-hidden="true"><use href="#daszek"/></svg><h2>Firmy wokół nieruchomości</h2></div>
+   <p>Pośrednicy, zarządcy, rzeczoznawcy, notariusze, kredyty i 22 inne branże. Podstawowa wizytówka w katalogu jest bezpłatna.</p>
+  </div>
+  <div class="firmy">
+   <ul class="cats" style="margin-top:0">
+    <li><a href="#firmy">Pośrednicy w obrocie</a></li>
+    <li><a href="#firmy">Zarządcy nieruchomości</a></li>
+    <li><a href="#firmy">Rzeczoznawcy majątkowi</a></li>
+    <li><a href="#firmy">Deweloperzy</a></li>
+    <li><a href="#firmy">Spółdzielnie mieszkaniowe</a></li>
+    <li><a href="#firmy">Notariusze</a></li>
+    <li><a href="#firmy">Kredyty</a></li>
+    <li><a href="#firmy">Ubezpieczenia</a></li>
+    <li><a href="#firmy">Obsługa prawna</a></li>
+    <li><a href="#firmy">Audyt energetyczny</a></li>
+    <li><a href="#firmy">Biura rachunkowe</a></li>
+    <li><a href="#firmy">Przeprowadzki</a></li>
+   </ul>
+   <div class="biura">
+    <h3>Biura nieruchomości</h3>
+    <div class="rail offices" id="biura">
+     <div class="bi"><b>AGORA Nieruchomości</b><p>ul. Padlewskiego 3 lok. 7, Płock<br>tel. 24 364 44 77</p></div>
+     <div class="bi"><b>Aspect Nieruchomości</b><p>ul. Sienkiewicza 36 lok. 11, Płock<br>tel. 24 262 61 11</p></div>
+     <div class="bi"><b>Pasja Nieruchomości</b><p>ul. Tysiąclecia 10 lok. 22, Płock<br>tel. 604 431 808</p></div>
+     <div class="bi"><b>EKSPERT Nieruchomości</b><p>ul. Czwartaków 4, Płock<br>tel. 606 250 620</p></div>
+     <div class="bi"><b>Biuro Nieruchomości LOKUM</b><p>ul. Królewiecka 20, Płock<br>tel. 603 060 103</p></div>
+     <div class="bi"><b>ATRIUM Anna Stępniak</b><p>ul. Zdziarskiego 19, Płock<br>tel. 24 262 20 29</p></div>
+     <div class="bi"><b>BON Posesja</b><p>Nowy Rynek 8 lok. 22, Płock<br>tel. 24 364 86 44</p></div>
+     <div class="bi"><b>Chatka Krzysztof Krakowski</b><p>ul. Szarych Szeregów 33, Płock<br>tel. 504 174 519</p></div>
+     <div class="bi"><b>Agencja MAM Nieruchomości</b><p>ul. św. Floriana 12, Płock<br>tel. 720 708 414</p></div>
+     <div class="bi"><b>Pracownia Nieruchomości</b><p>ul. Szarych Szeregów 23, Płock<br>tel. 797 977 902</p></div>
+    </div>
+    <div class="rail-nav"><button type="button" data-rail="biura" data-dir="-1" aria-label="Poprzednie biura">&#8592;</button><button type="button" data-rail="biura" data-dir="1" aria-label="Następne biura">&#8594;</button></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="dodaj">
+ <div class="wrap">
+  <div class="sec-head">
+   <div><svg class="mark" aria-hidden="true"><use href="#daszek"/></svg><h2>Dodaj ogłoszenie albo wizytówkę firmy</h2></div>
+   <p>Dodawanie ogłoszeń i podstawowa wizytówka w katalogu są bezpłatne. Wystarczy darmowe konto.</p>
+  </div>
+  <div class="add">
+   <div class="k"><h3>Biuro nieruchomości</h3><p>Konto biura z wizytówką i listą ofert. Oferty można dodawać ręcznie albo automatycznie z programu Galactica Virgo.</p></div>
+   <div class="k"><h3>Firma budowlana lub usługowa</h3><p>Wizytówka w katalogu firm: dane kontaktowe, opis, logo i zdjęcia realizacji, w jednej z branż nieruchomości albo budownictwa.</p></div>
+   <div class="k"><h3>Osoba prywatna</h3><p>Ogłoszenie sprzedaży lub wynajmu domu, mieszkania albo działki, a także ogłoszenie budowlane.</p></div>
+  </div>
+  <div class="reg">
+   <div><h3>Załóż darmowe konto</h3><p>Po potwierdzeniu adresu e-mail można od razu dodać ogłoszenie albo wizytówkę.</p></div>
+   <form id="reg" onsubmit="return false">
+    <label>Rodzaj konta<select><option>Biuro nieruchomości</option><option>Firma budowlana lub usługowa</option><option>Osoba prywatna</option></select></label>
+    <label>Adres e-mail<input type="email" placeholder="np. biuro@firma.pl" autocomplete="off"></label>
+    <button class="btn btn-dark" type="submit">Załóż konto</button>
+    <p class="msg" id="reg-msg">To podgląd wyglądu, formularz nie wysyła jeszcze danych.</p>
+   </form>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="foot">
+ <div class="wrap">
+  <div class="foot-g">
+   <div class="foot-brand">
+    <a class="logo" href="#start"><svg aria-hidden="true" style="color:#fff"><use href="#znak"/></svg><span><b>PLCNiB</b><small>Płockie Centrum Nieruchomości i Budownictwa</small></span></a>
+    <p style="margin-top:14px;max-width:36ch">Portal poświęcony nieruchomościom i budownictwu w Płocku i okolicach.</p>
+   </div>
+   <div><h4>Nieruchomości</h4><ul><li><a href="#nieruchomosci">Oferty</a></li><li><a href="#firmy">Biura nieruchomości</a></li><li><a href="#firmy">Katalog firm</a></li></ul></div>
+   <div><h4>Budownictwo</h4><ul><li><a href="#budownictwo">Firmy budowlane</a></li><li><a href="#budownictwo">Ogłoszenia budowlane</a></li><li><a href="#dodaj">Dodaj wizytówkę</a></li></ul></div>
+   <div><h4>Portal</h4><ul><li><a href="#dodaj">Załóż konto</a></li><li><a href="#start">Regulamin</a></li><li><a href="#start">Polityka prywatności</a></li><li>biuro@plcnib.pl</li></ul></div>
+  </div>
+  <div class="foot-bottom">
+   <span>© 2026 PLCNiB, Płock</span>
+   <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=plcnib.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+var O=[
+{id:37716,typ:"Mieszkanie",trans:"Sprzedaż",cena:357000,pow:42,lok:"Płock, Skarpa",pok:2,b:"Aspect Nieruchomości",pl:1,alt:"Salon z aneksem kuchennym"},
+{id:38383,typ:"Lokal użytkowy",trans:"Wynajem",cena:6350,pow:127,lok:"Płock, Stare Miasto, ul. Bielska",pok:3,b:"AGORA Nieruchomości",pl:1,alt:"Żółta kamienica z lokalem na parterze"},
+{id:37818,typ:"Dom",trans:"Sprzedaż",cena:295000,pow:80,lok:"Gąbin, obrzeża miasta",pok:3,b:"Aspect Nieruchomości",pl:0,alt:"Parterowy dom z cegły"},
+{id:38392,typ:"Mieszkanie",trans:"Sprzedaż",cena:656000,pow:71,lok:"Płock, Podolszyce Północ, ul. Urodzajna",pok:4,b:"AGORA Nieruchomości",pl:1,alt:"Osiedle Podolszyce z lotu ptaka"},
+{id:38377,typ:"Siedlisko",trans:"Sprzedaż",cena:1500000,pow:300,lok:"Parzeń, gm. Brudzeń Duży",pok:0,b:"Pasja Nieruchomości",pl:0,alt:"Łąka i zabudowania siedliska"},
+{id:38390,typ:"Działka",trans:"Sprzedaż",cena:2220000,pow:37000,lok:"Płock, Ciechomice",pok:0,b:"AGORA Nieruchomości",pl:1,alt:"Działka w Ciechomicach z lotu ptaka"},
+{id:37721,typ:"Mieszkanie",trans:"Wynajem",cena:2500,pow:42,lok:"Płock, Wyszogrodzka",pok:2,b:"Pasja Nieruchomości",pl:1,alt:"Kuchnia i jadalnia w mieszkaniu"},
+{id:38382,typ:"Obiekt",trans:"Wynajem",cena:10800,pow:520,lok:"Płock, Petrochemia",pok:0,b:"AGORA Nieruchomości",pl:1,alt:"Hala i plac z lotu ptaka"}
+];
+function zl(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g," ")}
+function pow(o){return o.pow>=10000?(o.pow/10000).toLocaleString("pl-PL",{maximumFractionDigits:1})+" ha":zl(o.pow)+" m²"}
+function pok(n){return n?(" · "+n+(n==1?" pokój":(n<5?" pokoje":" pokoi"))):""}
+var rail=document.getElementById("oferty");
+rail.innerHTML=O.map(function(o){var w=o.trans=="Wynajem";return '<article class="of" data-typ="'+o.typ+'" data-trans="'+o.trans+'" data-cena="'+o.cena+'" data-pl="'+o.pl+'"><div class="of-ph"><img src="img/o'+o.id+'-640.webp" width="640" height="480" alt="'+o.alt+'" loading="lazy"><span class="tag'+(w?' wyn':'')+'">'+o.trans+'</span></div><div class="of-b"><p class="cena">'+zl(o.cena)+' zł'+(w?' / mies.':'')+'</p><p class="par">'+o.typ+' · '+pow(o)+pok(o.pok)+'</p><p class="lok">'+o.lok+'</p><p class="biuro">'+o.b+'</p></div></article>'}).join("");
+var fT=document.getElementById("f-typ"),fR=document.getElementById("f-trans"),fG=document.getElementById("f-gdzie"),fC=document.getElementById("f-cena"),cnt=document.getElementById("count"),emp=document.getElementById("empty");
+var chips=[].slice.call(document.querySelectorAll(".chip"));
+function filtr(){var n=0;[].forEach.call(rail.children,function(c){var ok=(!fT.value||c.dataset.typ==fT.value)&&(!fR.value||c.dataset.trans==fR.value)&&(!fG.value||(fG.value=="p")==(c.dataset.pl=="1"))&&(!fC.value||+c.dataset.cena<=+fC.value);c.hidden=!ok;if(ok)n++});
+ chips.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.typ==fT.value?"true":"false")});
+ var any=fT.value||fR.value||fG.value||fC.value;cnt.textContent=any?("Pasuje "+n+" z "+O.length+" ofert w podglądzie"):"Najnowsze oferty z portalu";emp.style.display=n?"none":"block";rail.scrollLeft=0}
+[fT,fR,fG,fC].forEach(function(e){e.addEventListener("change",filtr)});
+document.getElementById("szukaj").addEventListener("submit",filtr);
+chips.forEach(function(b){b.addEventListener("click",function(){fT.value=(fT.value==b.dataset.typ)?"":b.dataset.typ;filtr()})});
+/* przesuwanie mysza */
+[].forEach.call(document.querySelectorAll(".rail"),function(r){var down=false,x0=0,s0=0,moved=false;
+ r.addEventListener("mousedown",function(e){if(r.scrollWidth<=r.clientWidth)return;down=true;moved=false;x0=e.pageX;s0=r.scrollLeft;r.classList.add("drag")});
+ window.addEventListener("mouseup",function(){if(!down)return;down=false;r.classList.remove("drag")});
+ r.addEventListener("mousemove",function(e){if(!down)return;var d=e.pageX-x0;if(Math.abs(d)>4)moved=true;r.scrollLeft=s0-d});
+ r.addEventListener("click",function(e){if(moved){e.preventDefault();e.stopPropagation()}},true)});
+[].forEach.call(document.querySelectorAll(".rail-nav button"),function(b){b.addEventListener("click",function(){var r=document.getElementById(b.dataset.rail);var c=r.firstElementChild;r.scrollBy({left:(+b.dataset.dir)*(c.offsetWidth+14),behavior:"smooth"})})});
+/* menu */
+var bg=document.querySelector(".burger"),mn=document.getElementById("mobnav");
+bg.addEventListener("click",function(){var o=mn.classList.toggle("open");bg.setAttribute("aria-expanded",o);bg.setAttribute("aria-label",o?"Zamknij menu":"Otwórz menu")});
+[].forEach.call(mn.querySelectorAll("a"),function(a){a.addEventListener("click",function(){mn.classList.remove("open");bg.setAttribute("aria-expanded","false")})});
+/* aktywna pozycja menu */
+var links=[].slice.call(document.querySelectorAll(".menu a,.mobnav a:not(.btn)"));
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.setAttribute("aria-current",a.getAttribute("href")=="#"+e.target.id?"true":"false")})}})},{rootMargin:"-45% 0px -50% 0px"});
+ ["start","nieruchomosci","budownictwo","firmy","dodaj"].forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s)})}
+document.getElementById("reg").addEventListener("submit",function(){document.getElementById("reg-msg").style.display="block"});
+})();
+</script>
+</body>
+</html>
